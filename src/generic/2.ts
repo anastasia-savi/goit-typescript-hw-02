@@ -11,13 +11,19 @@ type AllType = {
   weight: number
 }
 
-function compare (top, bottom): AllType {
-  return {
-    name: top.name,
-    color: top.color,
-    position: bottom.position,
-    weight: bottom.weight,
+function compare<T extends keyof AllType>(
+  top: Pick<AllType, T>,
+  bottom: Pick<AllType, T>
+): Pick<AllType, T> {
+  const result: Partial<AllType> = {};
+
+  for (const key in top) {
+    if (top[key] !== undefined && bottom[key] !== undefined) {
+      result[key as T] = top[key] ?? bottom[key];
+    }
   }
+
+  return result as Pick<AllType, T>;
 }
 
 export {};

@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "rootDir": "./src",
+    "rootDir": "./",
     "outDir": "./dist",
     "allowJs": false,
     "allowSyntheticDefaultImports": true,
@@ -14,5 +14,6 @@
     "target": "es2019",
     "sourceMap": true
   },
-  "include": ["**/*.ts"]
+  "include": ["**/*.ts",  "hw2/src/**/*.ts"],
+  
 }
